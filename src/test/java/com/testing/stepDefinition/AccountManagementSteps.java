@@ -9,6 +9,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -53,6 +54,11 @@ public class AccountManagementSteps {
 
     @Then("^my account page is displayed$")
     public void myAccountPageIsDisplayed() {
+
+        String expectedPageTitle = "My Account";
+        String actualPageTitle = driver.getTitle();
+
+        Assert.assertEquals(expectedPageTitle, actualPageTitle);
 
     }
 

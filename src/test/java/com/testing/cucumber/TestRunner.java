@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         glue = {"com.testing.stepDefinition",
                 "com.testing.cucumber",},
         format = {"pretty","html:target/site/cucumber-pretty"},
-        tags = {"@AccountManagement"}
+        tags = {"@CreateAccount"}
 )
         public class TestRunner {
 }
