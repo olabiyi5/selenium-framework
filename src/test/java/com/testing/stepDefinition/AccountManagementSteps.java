@@ -104,11 +104,21 @@ public class AccountManagementSteps {
 
     @Then("^error message account already exist should be displayed$")
     public void errorMessageAccountAlreadyExistShouldBeDisplayed() {
+        String expectedPageTitle ="Create New Customer Account";
+        String actualPageTitle = driver.getTitle();
+
+        Assert.assertEquals(expectedPageTitle, actualPageTitle);
+
+
 
     }
 
     @Then("^error message that account does not exist should be displayed$")
     public void errorMessageThatAccountDoesNotExistShouldBeDisplayed() {
+        String expectedPageTitle = "Customer Login";
+        String actualPageTitle = driver.getTitle();
+
+        Assert.assertEquals(expectedPageTitle,actualPageTitle);
     }
 }
 

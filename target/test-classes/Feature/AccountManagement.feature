@@ -21,7 +21,7 @@ Feature: Account management
 
     Examples:
       | firstname | lastname | email                 | password  | confirmpassword |
-      | daniel    | dotun    | daniendotun@gmail.com | Daniel123@ | Daniel123@       |
+      | Gbenga    | olabiyi    | gbengaolabiyi6@gmail.com | Dennis123 | Dennis123      |
 
 
   @RegisteredCustomerLogin
@@ -44,7 +44,7 @@ Feature: Account management
 
     Examples:
       | email                 | password |
-      | daniendotun@gmail.com | danie123 |
+      | sam123@gmail.com | danie123 |
 
 
 
