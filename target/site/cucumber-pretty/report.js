@@ -13,163 +13,142 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "line": 16,
-  "name": "Create an account using valid email address",
+  "line": 51,
+  "name": "Account to be locked after maximum of 5 attempt",
   "description": "",
-  "id": "account-management;create-an-account-using-valid-email-address",
+  "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt",
   "type": "scenario_outline",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 15,
-      "name": "@DuplicateAccount"
+      "line": 50,
+      "name": "@AccountLock"
     }
   ]
 });
 formatter.step({
-  "line": 17,
-  "name": "user is on create an account page",
+  "line": 52,
+  "name": "user is on login page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 18,
-  "name": "user enter \"\u003cfirstname\u003e\", \"\u003clastname\u003e\", \"\u003cemail\u003e\", \"\u003cpassword\u003e\" and \"\u003cconfirmpassword\u003e\"",
+  "line": 53,
+  "name": "user enter wrong \"\u003cemail\u003e\" , \"\u003cpassword\u003e\"",
   "keyword": "When "
 });
 formatter.step({
-  "line": 19,
-  "name": "user click create an account",
+  "line": 54,
+  "name": "user click on login",
   "keyword": "And "
 });
 formatter.step({
-  "line": 20,
-  "name": "error message account already exist should be displayed",
+  "line": 55,
+  "name": "error message that account has being locked should be displayed",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 22,
+  "line": 57,
   "name": "",
   "description": "",
-  "id": "account-management;create-an-account-using-valid-email-address;",
+  "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt;",
   "rows": [
     {
       "cells": [
-        "firstname",
-        "lastname",
         "email",
-        "password",
-        "confirmpassword"
+        "password"
       ],
-      "line": 23,
-      "id": "account-management;create-an-account-using-valid-email-address;;1"
+      "line": 58,
+      "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt;;1"
     },
     {
       "cells": [
-        "Gbenga",
-        "olabiyi",
-        "gbengaolabiyi6@gmail.com",
-        "Dennis123",
-        "Dennis123"
+        "sam123@gmail.com",
+        "dennis123"
       ],
-      "line": 24,
-      "id": "account-management;create-an-account-using-valid-email-address;;2"
+      "line": 59,
+      "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 24,
-  "name": "Create an account using valid email address",
+  "line": 59,
+  "name": "Account to be locked after maximum of 5 attempt",
   "description": "",
-  "id": "account-management;create-an-account-using-valid-email-address;;2",
+  "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 15,
-      "name": "@DuplicateAccount"
-    },
-    {
       "line": 1,
       "name": "@AccountManagement"
+    },
+    {
+      "line": 50,
+      "name": "@AccountLock"
     }
   ]
 });
 formatter.step({
-  "line": 17,
-  "name": "user is on create an account page",
+  "line": 52,
+  "name": "user is on login page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 18,
-  "name": "user enter \"Gbenga\", \"olabiyi\", \"gbengaolabiyi6@gmail.com\", \"Dennis123\" and \"Dennis123\"",
+  "line": 53,
+  "name": "user enter wrong \"sam123@gmail.com\" , \"dennis123\"",
   "matchedColumns": [
     0,
-    1,
-    2,
-    3,
-    4
+    1
   ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 19,
-  "name": "user click create an account",
+  "line": 54,
+  "name": "user click on login",
   "keyword": "And "
 });
 formatter.step({
-  "line": 20,
-  "name": "error message account already exist should be displayed",
+  "line": 55,
+  "name": "error message that account has being locked should be displayed",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "AccountManagementSteps.userIsOnCreateAnAccountPage()"
+  "location": "AccountManagementSteps.userIsOnLoginPage()"
 });
 formatter.result({
-  "duration": 68765836400,
+  "duration": 64774345200,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "Gbenga",
-      "offset": 12
+      "val": "sam123@gmail.com",
+      "offset": 18
     },
     {
-      "val": "olabiyi",
-      "offset": 22
-    },
-    {
-      "val": "gbengaolabiyi6@gmail.com",
-      "offset": 33
-    },
-    {
-      "val": "Dennis123",
-      "offset": 61
-    },
-    {
-      "val": "Dennis123",
-      "offset": 77
+      "val": "dennis123",
+      "offset": 39
     }
   ],
-  "location": "AccountManagementSteps.userEnterAnd(String,String,String,String,String)"
+  "location": "AccountManagementSteps.userEnterWrong(String,String)"
 });
 formatter.result({
-  "duration": 7128018800,
+  "duration": 1269224200,
   "status": "passed"
 });
 formatter.match({
-  "location": "AccountManagementSteps.userClickCreateAnAccount()"
+  "location": "AccountManagementSteps.userClickOnLogin()"
 });
 formatter.result({
-  "duration": 2197065900,
+  "duration": 1726754600,
   "status": "passed"
 });
 formatter.match({
-  "location": "AccountManagementSteps.errorMessageAccountAlreadyExistShouldBeDisplayed()"
+  "location": "AccountManagementSteps.errorMessageThatAccountHasBeingLockedShouldBeDisplayed()"
 });
 formatter.result({
-  "duration": 31761200,
+  "duration": 181918700,
   "status": "passed"
 });
 });

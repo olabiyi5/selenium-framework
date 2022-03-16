@@ -2,8 +2,9 @@ package com.testing.stepDefinition;
 
 import com.testing.pageObject.CreateAccountPagePO;
 import com.testing.pageObject.RegisteredCustomerLoginPO;
-import com.testing.pageObject.DuplicateAccountPO;
+import com.testing.pageObject.AccountLockPO;
 import com.testing.pageObject.HomePagePO;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -120,7 +121,24 @@ public class AccountManagementSteps {
 
         Assert.assertEquals(expectedPageTitle,actualPageTitle);
     }
+
+
+    @When("^user enter wrong \"([^\"]*)\" , \"([^\"]*)\"$")
+    public void userEnterWrong(String email, String password) {
+        AccountLockPO accountLockPO = new AccountLockPO(driver);
+        accountLockPO.enterEmailAddress(email);
+        accountLockPO.enterPass(password);
+
+    }
+
+    @Then("^error message that account has being locked should be displayed$")
+    public void errorMessageThatAccountHasBeingLockedShouldBeDisplayed() {
+        String expectedPageTitle= "Customer Login";
+        String actualPageTitle= driver.getTitle();
+
+    }
 }
+
 
 
 
