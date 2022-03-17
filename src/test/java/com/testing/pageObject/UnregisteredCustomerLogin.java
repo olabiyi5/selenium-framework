@@ -28,8 +28,7 @@ public class UnregisteredCustomerLogin {
         EmailField.sendKeys(email);
     }
 
-    public void enterPass( String pass){
-        PassField.sendKeys(pass);
+    public void enterPass( String pass){PassField.sendKeys(pass);
 
     }
 

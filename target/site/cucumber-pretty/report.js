@@ -13,69 +13,69 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "line": 51,
-  "name": "Account to be locked after maximum of 5 attempt",
+  "line": 28,
+  "name": "Registered customer to login with their username and password",
   "description": "",
-  "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt",
+  "id": "account-management;registered-customer-to-login-with-their-username-and-password",
   "type": "scenario_outline",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 50,
-      "name": "@AccountLock"
+      "line": 27,
+      "name": "@RegisteredCustomerLogin"
     }
   ]
 });
 formatter.step({
-  "line": 52,
+  "line": 29,
   "name": "user is on login page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 53,
-  "name": "user enter wrong \"\u003cemail\u003e\" , \"\u003cpassword\u003e\"",
+  "line": 30,
+  "name": "user enter \"\u003cemail\u003e\" , \"\u003cpassword\u003e\"",
   "keyword": "When "
 });
 formatter.step({
-  "line": 54,
+  "line": 31,
   "name": "user click on login",
   "keyword": "And "
 });
 formatter.step({
-  "line": 55,
-  "name": "error message that account has being locked should be displayed",
+  "line": 32,
+  "name": "my account page is displayed",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 57,
+  "line": 34,
   "name": "",
   "description": "",
-  "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt;",
+  "id": "account-management;registered-customer-to-login-with-their-username-and-password;",
   "rows": [
     {
       "cells": [
         "email",
         "password"
       ],
-      "line": 58,
-      "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt;;1"
+      "line": 35,
+      "id": "account-management;registered-customer-to-login-with-their-username-and-password;;1"
     },
     {
       "cells": [
-        "sam123@gmail.com",
-        "dennis123"
+        "ayodele123@gmail.com",
+        "Sunday1993"
       ],
-      "line": 59,
-      "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt;;2"
+      "line": 36,
+      "id": "account-management;registered-customer-to-login-with-their-username-and-password;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 59,
-  "name": "Account to be locked after maximum of 5 attempt",
+  "line": 36,
+  "name": "Registered customer to login with their username and password",
   "description": "",
-  "id": "account-management;account-to-be-locked-after-maximum-of-5-attempt;;2",
+  "id": "account-management;registered-customer-to-login-with-their-username-and-password;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -84,19 +84,19 @@ formatter.scenario({
       "name": "@AccountManagement"
     },
     {
-      "line": 50,
-      "name": "@AccountLock"
+      "line": 27,
+      "name": "@RegisteredCustomerLogin"
     }
   ]
 });
 formatter.step({
-  "line": 52,
+  "line": 29,
   "name": "user is on login page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 53,
-  "name": "user enter wrong \"sam123@gmail.com\" , \"dennis123\"",
+  "line": 30,
+  "name": "user enter \"ayodele123@gmail.com\" , \"Sunday1993\"",
   "matchedColumns": [
     0,
     1
@@ -104,51 +104,52 @@ formatter.step({
   "keyword": "When "
 });
 formatter.step({
-  "line": 54,
+  "line": 31,
   "name": "user click on login",
   "keyword": "And "
 });
 formatter.step({
-  "line": 55,
-  "name": "error message that account has being locked should be displayed",
+  "line": 32,
+  "name": "my account page is displayed",
   "keyword": "Then "
 });
 formatter.match({
   "location": "AccountManagementSteps.userIsOnLoginPage()"
 });
 formatter.result({
-  "duration": 64774345200,
+  "duration": 72150618101,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "sam123@gmail.com",
-      "offset": 18
+      "val": "ayodele123@gmail.com",
+      "offset": 12
     },
     {
-      "val": "dennis123",
-      "offset": 39
+      "val": "Sunday1993",
+      "offset": 37
     }
   ],
-  "location": "AccountManagementSteps.userEnterWrong(String,String)"
+  "location": "AccountManagementSteps.userEnter(String,String)"
 });
 formatter.result({
-  "duration": 1269224200,
+  "duration": 970726699,
   "status": "passed"
 });
 formatter.match({
   "location": "AccountManagementSteps.userClickOnLogin()"
 });
 formatter.result({
-  "duration": 1726754600,
+  "duration": 10656333899,
   "status": "passed"
 });
 formatter.match({
-  "location": "AccountManagementSteps.errorMessageThatAccountHasBeingLockedShouldBeDisplayed()"
+  "location": "AccountManagementSteps.myAccountPageIsDisplayed()"
 });
 formatter.result({
-  "duration": 181918700,
-  "status": "passed"
+  "duration": 84528599,
+  "error_message": "org.junit.ComparisonFailure: expected:\u003c[My Account]\u003e but was:\u003c[Customer Login]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat org.junit.Assert.assertEquals(Assert.java:144)\r\n\tat com.testing.stepDefinition.AccountManagementSteps.myAccountPageIsDisplayed(AccountManagementSteps.java:59)\r\n\tat ✽.Then my account page is displayed(AccountManagement.feature:32)\r\n",
+  "status": "failed"
 });
 });

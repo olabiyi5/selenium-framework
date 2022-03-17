@@ -1,9 +1,6 @@
 package com.testing.stepDefinition;
 
-import com.testing.pageObject.CreateAccountPagePO;
-import com.testing.pageObject.RegisteredCustomerLoginPO;
-import com.testing.pageObject.AccountLockPO;
-import com.testing.pageObject.HomePagePO;
+import com.testing.pageObject.*;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -136,6 +133,55 @@ public class AccountManagementSteps {
         String expectedPageTitle= "Customer Login";
         String actualPageTitle= driver.getTitle();
 
+    }
+
+    @Given("^user is on my account page$")
+    public void userIsOnMyAccountPage() {
+        // Define Browser
+        WebDriverManager.chromedriver().setup();
+        // open the browser
+        driver = new ChromeDriver();
+
+        //maximize browser window
+        driver.manage().window().maximize();
+
+
+        //launch the application
+        driver.get("https://magento2-demo.magebit.com/");
+
+        //click on sign in link
+        HomePagePO homePagePO = new HomePagePO(driver);
+        homePagePO.clickSignIn();
+
+
+
+
+
+    }
+
+
+    @When("^user create an order \"([^\"]*)\" , \"([^\"]*)\",\"([^\"]*)\"$")
+    public void userCreateAnOrder(String Jacket, String Medium, String Blue) {
+        ActiveOrderPO activeOrderPO = new ActiveOrderPO(driver);
+        activeOrderPO. setStellarSolarJacketField(Jacket);
+        activeOrderPO.setBlueField(Blue);
+        activeOrderPO. setMediumField(Medium);
+
+
+    }
+
+    @And("^user click on my order$")
+    public void userClickOnMyOrder() {
+        ActiveOrderPO activeOrderPO = new ActiveOrderPO(driver);
+        activeOrderPO.clickAddToCartButton();
+
+    }
+
+    @Then("^active order should be displayed$")
+    public void activeOrderShouldBeDisplayed() {
+        String expectedPageTitle= "Active order";
+        String actualPageTitle= driver.getTitle();
+        
     }
 }
 
