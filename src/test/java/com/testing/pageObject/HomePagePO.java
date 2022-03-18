@@ -14,7 +14,6 @@ public class HomePagePO {
     @FindBy(linkText = "Sign In")
     public static WebElement SignInLink;
 
-
     //Stage 2 - Initialise element to use selenium webdriver
     public HomePagePO(WebDriver driver){
         PageFactory.initElements(driver, this);
