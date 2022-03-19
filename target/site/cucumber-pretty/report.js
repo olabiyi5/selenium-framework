@@ -117,7 +117,7 @@ formatter.match({
   "location": "AccountManagementSteps.userIsOnLoginPage()"
 });
 formatter.result({
-  "duration": 72150618101,
+  "duration": 52200510000,
   "status": "passed"
 });
 formatter.match({
@@ -134,21 +134,21 @@ formatter.match({
   "location": "AccountManagementSteps.userEnter(String,String)"
 });
 formatter.result({
-  "duration": 970726699,
+  "duration": 2183889999,
   "status": "passed"
 });
 formatter.match({
   "location": "AccountManagementSteps.userClickOnLogin()"
 });
 formatter.result({
-  "duration": 10656333899,
+  "duration": 2010259500,
   "status": "passed"
 });
 formatter.match({
   "location": "AccountManagementSteps.myAccountPageIsDisplayed()"
 });
 formatter.result({
-  "duration": 84528599,
+  "duration": 275494099,
   "error_message": "org.junit.ComparisonFailure: expected:\u003c[My Account]\u003e but was:\u003c[Customer Login]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat org.junit.Assert.assertEquals(Assert.java:144)\r\n\tat com.testing.stepDefinition.AccountManagementSteps.myAccountPageIsDisplayed(AccountManagementSteps.java:59)\r\n\tat ✽.Then my account page is displayed(AccountManagement.feature:32)\r\n",
   "status": "failed"
 });
