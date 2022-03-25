@@ -9,7 +9,7 @@ Feature: Account management
     Then my account page is displayed
 
     Examples:
-      | firstname | lastname | email                 | password   | confirmpassword |
+      | firstname | lastname | email                | password   | confirmpassword |
       | ayo       | dele     | ayodele123@gmail.com | Sunday1993 | Sunday1993      |
 
   @DuplicateAccount
@@ -20,8 +20,8 @@ Feature: Account management
     Then error message account already exist should be displayed
 
     Examples:
-      | firstname | lastname | email                    | password  | confirmpassword |
-      | ayo  | dele  | ayodele123@gmail.com | Sunday1993 | Sunday1993      |
+      | firstname | lastname | email                | password   | confirmpassword |
+      | ayo       | dele     | ayodele123@gmail.com | Sunday1993 | Sunday1993      |
 
 
   @RegisteredCustomerLogin
@@ -32,7 +32,7 @@ Feature: Account management
     Then my account page is displayed
 
     Examples:
-      | email                 | password  |
+      | email                | password   |
       | ayodele123@gmail.com | Sunday1993 |
 
   @UnregisteredCustomerLogin
@@ -66,8 +66,33 @@ Feature: Account management
     Then active order should be displayed
 
     Examples:
-      | Jacket            | size   | colour |
+      | jacket             | Size   | colour |
       | StellarSolarJacket | Medium | Blue   |
+
+  @AddingRadiantTeeToCart
+  Scenario Outline: Unregistered customer should be able to add items to cart
+    Given user is on the home page
+    When user click on the item "<RadiantTee>","<Size>" , "<Qty>" ,"<Colour>"
+    And user click on Add to cart button
+    Then Your item has being successfully added to cart
+
+
+    Examples:
+      | RadiantTee | Size | Qty | Colour |
+      | RadiantTee | s    | 1   | Blue   |
+
+  @AddingItemToCart(registered)
+  Scenario Outline: Registered customer be able to add item to cart
+    Given user login with a valid "<email>", "<password>"
+    When user click on login button
+    And user select an item from my account page "<women>","<AugustaPulloverJacket>", "<Jacket>" "<Size>","<Colour>", "<Qty>"
+    And User click on AddTocart button
+    Then user item should be successfully added to cart
+
+    Examples:
+      | email                    | password    | women | AugustaPulloverJacket | Jacket | Size | Colour | Qty |
+      | gbengaolabiyi5@gmail.com | Olabiyi1993 | Women | AugustaPulloverJacket | Jacket | s    | Blue   | 1   |
+
 
 
 

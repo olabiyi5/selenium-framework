@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 
 
-public class RegisteredCustomerLoginPO {
+public class  RegisteredCustomerLoginPO {
     // Stage 1 - Element Locators
     @FindBy(id = "email")
     public static WebElement EmailField;

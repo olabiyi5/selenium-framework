@@ -8,8 +8,10 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
 
 public class AccountManagementSteps {
     WebDriver driver;
@@ -26,9 +28,18 @@ public class AccountManagementSteps {
         //launch the application
         driver.get("https://magento2-demo.magebit.com/");
 
+        //Synchronization
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        //Page load
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
+
         //click on create an account link
         HomePagePO homePagePO = new HomePagePO(driver);
         homePagePO.clickCreateAccount();
+
+
 
     }
 
@@ -135,55 +146,136 @@ public class AccountManagementSteps {
 
     }
 
-    @Given("^user is on my account page$")
-    public void userIsOnMyAccountPage() {
-        // Define Browser
+
+    @Given("^user is on the home page$")
+    public void userIsOnTheHomePage() {
+        //Define Browser
         WebDriverManager.chromedriver().setup();
-        // open the browser
+        //Open the browser
         driver = new ChromeDriver();
 
         //maximize browser window
         driver.manage().window().maximize();
 
+        //launch the application
+        driver.get("https://magento2-demo.magebit.com/");
+
+        //Synchronization
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        //Page load
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+
+        // To perform scroll on application
+        JavascriptExecutor js =(JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,1500)","");
+
+
+
+
+
+
+    }
+
+
+    @When("^user click on the item \"([^\"]*)\",\"([^\"]*)\" , \"([^\"]*)\" ,\"([^\"]*)\"$")
+    public void userClickOnTheItem(String RadiantTee, String Size, String Qty, String Colour)  {
+        AddingRadiantTeePO addingRadiantTeePO = new AddingRadiantTeePO(driver);
+        addingRadiantTeePO.RadiantTeeField.click();
+        addingRadiantTeePO.SizeField.click();
+        addingRadiantTeePO.QtyField.sendKeys(Qty);
+        addingRadiantTeePO.ColourField.click();
+    }
+
+    
+
+
+
+
+
+    @And("^user click on Add to cart button$")
+    public void userClickOnAddToCartButton() {
+        AddingRadiantTeePO addingRadiantTeePO = new AddingRadiantTeePO(driver);
+        addingRadiantTeePO.clickAddToCartButton();
+        
+    }
+
+    @Then("^Your item has being successfully added to cart$")
+    public void yourItemHasBeingSuccessfullyAddedToCart() {
+        String expectedPageTitle= "Add to Cart";
+        String actualPageTitle= driver.getTitle();
+    }
+
+
+    @Given("^user login with a valid \"([^\"]*)\", \"([^\"]*)\"$")
+    public void userLoginWithAValid(String Email, String Password)  {
+        //Define Browser
+        WebDriverManager.chromedriver().setup();
+        //Open the browser
+        driver = new ChromeDriver();
+
+        //maximize browser window
+        driver.manage().window().maximize();
 
         //launch the application
         driver.get("https://magento2-demo.magebit.com/");
+
+        //Synchronization
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+        //Page load
+        driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
         //click on sign in link
         HomePagePO homePagePO = new HomePagePO(driver);
         homePagePO.clickSignIn();
 
-
+        AddingItemToCartPO addingItemToCartPO = new AddingItemToCartPO(driver);
+        addingItemToCartPO.enterEmailAddress(Email);
+        addingItemToCartPO.enterPass(Password);
 
 
 
     }
 
-
-    @When("^user create an order \"([^\"]*)\" , \"([^\"]*)\",\"([^\"]*)\"$")
-    public void userCreateAnOrder(String Jacket, String Medium, String Blue) {
-        ActiveOrderPO activeOrderPO = new ActiveOrderPO(driver);
-        activeOrderPO. setStellarSolarJacketField(Jacket);
-        activeOrderPO.setBlueField(Blue);
-        activeOrderPO. setMediumField(Medium);
+    @When("^user click on login button$")
+    public void userClickOnLoginButton() {
+        AddingItemToCartPO addingItemToCartPO = new AddingItemToCartPO(driver);
+        addingItemToCartPO. clickSignInButton();
 
 
     }
 
-    @And("^user click on my order$")
-    public void userClickOnMyOrder() {
-        ActiveOrderPO activeOrderPO = new ActiveOrderPO(driver);
-        activeOrderPO.clickAddToCartButton();
+    @And("^user select an item from my account page \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\" \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\"$")
+    public void userSelectAnItemFromMyAccountPage(String Women, String Size, String Jacket, String Colour, String Qty, String AugustaPulloverField) {
+         AddingItemToCartPO addingItemToCartPO = new AddingItemToCartPO(driver);
+        addingItemToCartPO.WomenField.click();
+        addingItemToCartPO.SizeField.click();
+        addingItemToCartPO.JacketField.click();
+        addingItemToCartPO.ColourField.click();
+        addingItemToCartPO.QtyField.sendKeys();
+        addingItemToCartPO.AugustaPulloverJacketField.click();
 
     }
 
-    @Then("^active order should be displayed$")
-    public void activeOrderShouldBeDisplayed() {
-        String expectedPageTitle= "Active order";
+    @And("^User click on AddTocart button$")
+    public void userClickOnAddTocartButton() {
+        AddingItemToCartPO addingItemToCartPO = new AddingItemToCartPO(driver);
+        addingItemToCartPO.clickAddToCartButton();
+    }
+
+
+    @Then("^user item should be successfully added to cart$")
+    public void userItemShouldBeSuccessfullyAddedToCart() {
+        String expectedPageTitle= "Add to Cart";
         String actualPageTitle= driver.getTitle();
-        
     }
+
+
 }
+
+
+
 
 
 
