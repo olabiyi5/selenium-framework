@@ -85,13 +85,13 @@ Feature: Account management
   Scenario Outline: Registered customer be able to add item to cart
     Given user login with a valid "<email>", "<password>"
     When user click on login button
-    And user select an item from my account page "<women>","<AugustaPulloverJacket>", "<Jacket>" "<Size>","<Colour>", "<Qty>"
+    And user select an item from my account page "<women>","<AugustaPulloverJacket>", "<Jacket>" "<Size>","<Colour>",
     And User click on AddTocart button
     Then user item should be successfully added to cart
 
     Examples:
-      | email                    | password    | women | AugustaPulloverJacket | Jacket | Size | Colour | Qty |
-      | gbengaolabiyi5@gmail.com | Olabiyi1993 | Women | AugustaPulloverJacket | Jacket | s    | Blue   | 1   |
+      | email                    | password    | women | AugustaPulloverJacket | Jacket | Size | Colour |
+      | gbengaolabiyi5@gmail.com | Olabiyi1993 | Women | AugustaPulloverJacket | Jacket | s    | Blue   |
 
 
 

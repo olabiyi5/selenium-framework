@@ -23,10 +23,10 @@ public class AddingItemToCartPO {
     public static WebElement WomenField;
 
 
-    @FindBy(className = "item")
+   @FindBy(css = "#maincontent > div.columns > div.sidebar.sidebar-main > div > div > ul:nth-child(2) > li:nth-child(2) > a")
     public static WebElement JacketField;
 
-    @FindBy(className = "product name product-item-name")
+    @FindBy(css = "#product-item-info_1260 > a > span > span > img")
     public static WebElement AugustaPulloverJacketField;
 
     @FindBy(id = "option-label-size-157-item-171")
@@ -38,8 +38,7 @@ public class AddingItemToCartPO {
     @FindBy(id = "product-addtocart-button")
     public static WebElement AddToCartButtonField;
 
-    @FindBy(id = "qty")
-    public static WebElement QtyField;
+
 
     // Step 2 - Initialise element to use selenium webdriver
     public AddingItemToCartPO(WebDriver driver) {PageFactory.initElements(driver, this);
@@ -64,13 +63,11 @@ public class AddingItemToCartPO {
 
     public void clickAugustaPulloverJacketField(String AugustaPulloverJacket){AugustaPulloverJacketField.click();}
 
-    public void enterQty(String Qty){QtyField.sendKeys(Qty);}
-
     public void clickSizeField(String Size){SizeField.click();}
 
     public void clickColourField(String Colour){ColourField.click();}
 
-    public void clickAddToCartButton(){AddToCartButtonField.click();}
+   public void clickAddToCartField(){AddToCartButtonField.click();}
 
 
 

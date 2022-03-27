@@ -246,22 +246,24 @@ public class AccountManagementSteps {
 
     }
 
-    @And("^user select an item from my account page \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\" \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\"$")
-    public void userSelectAnItemFromMyAccountPage(String Women, String Size, String Jacket, String Colour, String Qty, String AugustaPulloverField) {
-         AddingItemToCartPO addingItemToCartPO = new AddingItemToCartPO(driver);
+    @And("^user select an item from my account page \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\" \"([^\"]*)\",\"([^\"]*)\",$")
+    public void userSelectAnItemFromMyAccountPage(String Women, String Size, String Jacket, String Colour, String AugustaPulloverField){
+        AddingItemToCartPO addingItemToCartPO = new AddingItemToCartPO(driver);
         addingItemToCartPO.WomenField.click();
-        addingItemToCartPO.SizeField.click();
         addingItemToCartPO.JacketField.click();
-        addingItemToCartPO.ColourField.click();
-        addingItemToCartPO.QtyField.sendKeys();
         addingItemToCartPO.AugustaPulloverJacketField.click();
+        addingItemToCartPO.SizeField.click();
+        addingItemToCartPO.ColourField.click();
 
     }
 
     @And("^User click on AddTocart button$")
     public void userClickOnAddTocartButton() {
+        // To perform scroll on application
+        JavascriptExecutor js =(JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)","");
         AddingItemToCartPO addingItemToCartPO = new AddingItemToCartPO(driver);
-        addingItemToCartPO.clickAddToCartButton();
+        addingItemToCartPO.clickAddToCartField();
     }
 
 
@@ -270,6 +272,7 @@ public class AccountManagementSteps {
         String expectedPageTitle= "Add to Cart";
         String actualPageTitle= driver.getTitle();
     }
+
 
 
 }
