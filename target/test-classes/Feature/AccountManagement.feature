@@ -94,6 +94,24 @@ Feature: Account management
       | gbengaolabiyi5@gmail.com | Olabiyi1993 | Women | AugustaPulloverJacket | Jacket | s    | Blue   |
 
 
+  @CheckingOutOrderItem
+  Scenario Outline: Registered customer should be able to check out ordered items from cart
+    Given user login with a valid "<email>", "<password>"
+    When user click on login
+    And user select an item from my account page "<women>","<Jacket>" "<Hera Pullover Hoodie>", "<Colour>", "<Size>",
+    And User click on AddTocart button
+    And user click on the minicart
+    And user click on proceed to checkout button
+    And user fill all the contact details "<street address>", "<country>", "<state/province>" , "<City>", "<zipcode>" , "<phone number>"
+    And user click on a shipping method
+    And user click on the next button
+    When user click place an order button
+    Then User order has being successfully placed message should be displayed
+
+    Examples:
+      | email                    | password    |Hera Pullover Hoodie | Colour | Size | street address    | country   | state/province | City     | zipcode | phone number |
+      | gbengaolabiyi5@gmail.com | Olabiyi1993 | Hera Pullover Hoodie | Blue   | S    | statybininky 43pr | Lithuania | Klaipeda       | Klaipeda | 2345    |  37063537336 |
+
 
 
 

@@ -13,84 +13,75 @@ formatter.feature({
   ]
 });
 formatter.scenarioOutline({
-  "line": 85,
-  "name": "Registered customer be able to add item to cart",
+  "line": 5,
+  "name": "Create an account using valid email address",
   "description": "",
-  "id": "account-management;registered-customer-be-able-to-add-item-to-cart",
+  "id": "account-management;create-an-account-using-valid-email-address",
   "type": "scenario_outline",
   "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 84,
-      "name": "@AddingItemToCart(registered)"
+      "line": 4,
+      "name": "@CreateAccount"
     }
   ]
 });
 formatter.step({
-  "line": 86,
-  "name": "user login with a valid \"\u003cemail\u003e\", \"\u003cpassword\u003e\"",
+  "line": 6,
+  "name": "user is on create an account page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 87,
-  "name": "user click on login button",
+  "line": 7,
+  "name": "user enter \"\u003cfirstname\u003e\", \"\u003clastname\u003e\", \"\u003cemail\u003e\", \"\u003cpassword\u003e\" and \"\u003cconfirmpassword\u003e\"",
   "keyword": "When "
 });
 formatter.step({
-  "line": 88,
-  "name": "user select an item from my account page \"\u003cwomen\u003e\",\"\u003cAugustaPulloverJacket\u003e\", \"\u003cJacket\u003e\" \"\u003cSize\u003e\",\"\u003cColour\u003e\",",
+  "line": 8,
+  "name": "user click create an account",
   "keyword": "And "
 });
 formatter.step({
-  "line": 89,
-  "name": "User click on AddTocart button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 90,
-  "name": "user item should be successfully added to cart",
+  "line": 9,
+  "name": "my account page is displayed",
   "keyword": "Then "
 });
 formatter.examples({
-  "line": 92,
+  "line": 11,
   "name": "",
   "description": "",
-  "id": "account-management;registered-customer-be-able-to-add-item-to-cart;",
+  "id": "account-management;create-an-account-using-valid-email-address;",
   "rows": [
     {
       "cells": [
+        "firstname",
+        "lastname",
         "email",
         "password",
-        "women",
-        "AugustaPulloverJacket",
-        "Jacket",
-        "Size",
-        "Colour"
+        "confirmpassword"
       ],
-      "line": 93,
-      "id": "account-management;registered-customer-be-able-to-add-item-to-cart;;1"
+      "line": 12,
+      "id": "account-management;create-an-account-using-valid-email-address;;1"
     },
     {
       "cells": [
-        "gbengaolabiyi5@gmail.com",
-        "Olabiyi1993",
-        "Women",
-        "AugustaPulloverJacket",
-        "Jacket",
-        "s",
-        "Blue"
+        "ayo",
+        "dele",
+        "ayodele123@gmail.com",
+        "Sunday1993",
+        "Sunday1993"
       ],
-      "line": 94,
-      "id": "account-management;registered-customer-be-able-to-add-item-to-cart;;2"
+      "line": 13,
+      "id": "account-management;create-an-account-using-valid-email-address;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.scenario({
-  "line": 94,
-  "name": "Registered customer be able to add item to cart",
+  "line": 13,
+  "name": "Create an account using valid email address",
   "description": "",
-  "id": "account-management;registered-customer-be-able-to-add-item-to-cart;;2",
+  "id": "account-management;create-an-account-using-valid-email-address;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -99,112 +90,86 @@ formatter.scenario({
       "name": "@AccountManagement"
     },
     {
-      "line": 84,
-      "name": "@AddingItemToCart(registered)"
+      "line": 4,
+      "name": "@CreateAccount"
     }
   ]
 });
 formatter.step({
-  "line": 86,
-  "name": "user login with a valid \"gbengaolabiyi5@gmail.com\", \"Olabiyi1993\"",
-  "matchedColumns": [
-    0,
-    1
-  ],
+  "line": 6,
+  "name": "user is on create an account page",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 87,
-  "name": "user click on login button",
+  "line": 7,
+  "name": "user enter \"ayo\", \"dele\", \"ayodele123@gmail.com\", \"Sunday1993\" and \"Sunday1993\"",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 88,
-  "name": "user select an item from my account page \"Women\",\"AugustaPulloverJacket\", \"Jacket\" \"s\",\"Blue\",",
-  "matchedColumns": [
-    2,
-    3,
-    4,
-    5,
-    6
-  ],
+  "line": 8,
+  "name": "user click create an account",
   "keyword": "And "
 });
 formatter.step({
-  "line": 89,
-  "name": "User click on AddTocart button",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 90,
-  "name": "user item should be successfully added to cart",
+  "line": 9,
+  "name": "my account page is displayed",
   "keyword": "Then "
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "gbengaolabiyi5@gmail.com",
-      "offset": 25
-    },
-    {
-      "val": "Olabiyi1993",
-      "offset": 53
-    }
-  ],
-  "location": "AccountManagementSteps.userLoginWithAValid(String,String)"
+  "location": "AccountManagementSteps.userIsOnCreateAnAccountPage()"
 });
 formatter.result({
-  "duration": 97530468999,
-  "status": "passed"
-});
-formatter.match({
-  "location": "AccountManagementSteps.userClickOnLoginButton()"
-});
-formatter.result({
-  "duration": 1473687600,
+  "duration": 112918362900,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "Women",
-      "offset": 42
+      "val": "ayo",
+      "offset": 12
     },
     {
-      "val": "AugustaPulloverJacket",
-      "offset": 50
+      "val": "dele",
+      "offset": 19
     },
     {
-      "val": "Jacket",
-      "offset": 75
+      "val": "ayodele123@gmail.com",
+      "offset": 27
     },
     {
-      "val": "s",
-      "offset": 84
+      "val": "Sunday1993",
+      "offset": 51
     },
     {
-      "val": "Blue",
-      "offset": 88
+      "val": "Sunday1993",
+      "offset": 68
     }
   ],
-  "location": "AccountManagementSteps.userSelectAnItemFromMyAccountPage(String,String,String,String,String)"
+  "location": "AccountManagementSteps.userEnterAnd(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 9705394900,
+  "duration": 4076998600,
   "status": "passed"
 });
 formatter.match({
-  "location": "AccountManagementSteps.userClickOnAddTocartButton()"
+  "location": "AccountManagementSteps.userClickCreateAnAccount()"
 });
 formatter.result({
-  "duration": 407909900,
+  "duration": 2090140100,
   "status": "passed"
 });
 formatter.match({
-  "location": "AccountManagementSteps.userItemShouldBeSuccessfullyAddedToCart()"
+  "location": "AccountManagementSteps.myAccountPageIsDisplayed()"
 });
 formatter.result({
-  "duration": 92032199,
+  "duration": 74365200,
   "status": "passed"
 });
 });

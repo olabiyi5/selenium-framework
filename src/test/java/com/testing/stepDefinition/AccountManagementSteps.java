@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
-public class AccountManagementSteps {
+public class  AccountManagementSteps {
     WebDriver driver;
     @Given("^user is on create an account page$")
     public void userIsOnCreateAnAccountPage() {
@@ -249,11 +249,7 @@ public class AccountManagementSteps {
     @And("^user select an item from my account page \"([^\"]*)\",\"([^\"]*)\", \"([^\"]*)\" \"([^\"]*)\",\"([^\"]*)\",$")
     public void userSelectAnItemFromMyAccountPage(String Women, String Size, String Jacket, String Colour, String AugustaPulloverField){
         AddingItemToCartPO addingItemToCartPO = new AddingItemToCartPO(driver);
-        addingItemToCartPO.WomenField.click();
-        addingItemToCartPO.JacketField.click();
-        addingItemToCartPO.AugustaPulloverJacketField.click();
-        addingItemToCartPO.SizeField.click();
-        addingItemToCartPO.ColourField.click();
+
 
     }
 
@@ -274,8 +270,83 @@ public class AccountManagementSteps {
     }
 
 
+    @And("^user select an item from my account page \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\",$")
+    public void userSelectAnItemFromMyAccountPage(String StellarSolarJacket, String colour, String size){
+        CheckingOutOrderItemPO checkingOutOrderItemPO=new CheckingOutOrderItemPO(driver);
+        checkingOutOrderItemPO.StellarSolarJacketField.click();
+        checkingOutOrderItemPO.ColourField.click();
+        checkingOutOrderItemPO.SizeField.click();
 
-}
+
+    }
+
+    @And("^user click on the minicart$")
+    public void userClickOnTheMinicart() {
+        CheckingOutOrderItemPO checkingOutOrderItemPO=new CheckingOutOrderItemPO(driver);
+        checkingOutOrderItemPO.clickMiniCartField();
+    }
+
+
+
+    @And("^user click on proceed to checkout button$")
+    public void userClickOnProceedToCheckoutButton() {
+        CheckingOutOrderItemPO checkingOutOrderItemPO=new CheckingOutOrderItemPO(driver);
+        checkingOutOrderItemPO.clickProceedToCheckOutButtonField();
+    }
+
+
+    @And("^user fill all the contact details \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\" , \"([^\"]*)\", \"([^\"]*)\" , \"([^\"]*)\"$")
+    public void userFillAllTheContactDetails(String StreetAddress, String Country, String StateProvince, String City, String Zipcode, String PhoneNumber){
+        CheckingOutOrderItemPO checkingOutOrderItemPO=new CheckingOutOrderItemPO(driver);
+        checkingOutOrderItemPO.enterStreetAddressField(StreetAddress);
+        checkingOutOrderItemPO.selectCountryField(Country);
+        checkingOutOrderItemPO.selectStateProvinceField(StateProvince);
+        checkingOutOrderItemPO.selectCityField(City);
+        checkingOutOrderItemPO.enterZipPostalCodeField(Zipcode);
+        checkingOutOrderItemPO.enterPhoneNumberField(PhoneNumber);
+
+    }
+
+
+    @And("^user click on a shipping method$")
+    public void userClickOnAShippingMethod() {
+        CheckingOutOrderItemPO checkingOutOrderItemPO=new CheckingOutOrderItemPO(driver);
+        checkingOutOrderItemPO.clickShippingMethodField();
+
+
+    }
+
+    @And("^user click on the next button$")
+    public void userClickOnTheNextButton() {
+        CheckingOutOrderItemPO checkingOutOrderItemPO=new CheckingOutOrderItemPO(driver);
+        checkingOutOrderItemPO.clickNextButtonField();
+
+
+    }
+
+    @When("^user click place an order button$")
+    public void userClickPlaceAnOrderButton() {
+        CheckingOutOrderItemPO checkingOutOrderItemPO=new CheckingOutOrderItemPO(driver);
+        checkingOutOrderItemPO.clickPlaceOrderButton();
+
+
+
+    }
+
+
+    @Then("^User order has being successfully placed message should be displayed$")
+    public void userOrderHasBeingSuccessfullyPlacedMessageShouldBeDisplayed() {
+        String expectedPageTitle = "Checking out order";
+        String actualPageTitle = driver.getTitle();
+
+        Assert.assertEquals(expectedPageTitle,actualPageTitle);
+    }
+
+
+
+
+    }
+
 
 
 
